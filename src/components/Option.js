@@ -2,15 +2,17 @@ import React from "react";
 
 // Functional stateless component
 const Option = props => (
-  <div>
-    <li key={props.index}>{props.optionText}</li>
+  <div className="option">
+    <p className="option__text" key={props.index}>
+      {props.count}. {props.optionText}
+    </p>
     <button
       className="button button--link"
       onClick={e => {
         props.handleDeleteOption(props.optionText);
       }}
     >
-      Remove Item
+      Remove Option
     </button>
   </div>
 );
