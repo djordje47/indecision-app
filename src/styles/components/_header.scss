@@ -1,13 +1,13 @@
 .header {
   background: $off-black;
-  margin-bottom: 4.8rem;
+  margin-bottom: $xl-size;
   padding: $m-size 0;
   color: #fff;
 }
 
 // BEM - block element modifier
 .header__title {
-  font-size: 3.2rem;
+  font-size: $l-size;
   margin: 0;
 }
 

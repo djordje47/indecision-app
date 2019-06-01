@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 // My components
-import AddOption from './AddOption';
-import Header from './Header';
-import Action from './Action';
-import Options from './Options';
-import OptionModal from './OptionModal';
+import AddOption from "./AddOption";
+import Header from "./Header";
+import Action from "./Action";
+import Options from "./Options";
+import OptionModal from "./OptionModal";
 
 export default class IndecisionApp extends React.Component {
   state = {
     options: [],
     selectedOption: undefined,
-    title: 'Indecision Application',
-    subtitle: 'Put your life in hands of computer! :D'
+    title: "Indecision Application",
+    subtitle: "Put your life in hands of computer! :D"
   };
 
   /**
@@ -29,10 +29,10 @@ export default class IndecisionApp extends React.Component {
    * Handle click on remove item button
    * Filter through state and remove the one that's clicked
    */
-  handleDeleteOption = (optionToRemove) => {
-    this.setState((prevState) => {
+  handleDeleteOption = optionToRemove => {
+    this.setState(prevState => {
       return {
-        options: prevState.options.filter((currentOption) => {
+        options: prevState.options.filter(currentOption => {
           return optionToRemove !== currentOption;
         })
       };
@@ -42,14 +42,14 @@ export default class IndecisionApp extends React.Component {
   /**
    * Add option to the state
    */
-  handleAddOption = (option) => {
+  handleAddOption = option => {
     if (!option) {
-      return 'Enter valid option!';
+      return "Enter valid option!";
     } else if (this.state.options.indexOf(option) > -1) {
       return `This option: "${option}" already exists!`;
     }
 
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return {
         options: [...prevState.options, option]
       };
@@ -77,7 +77,7 @@ export default class IndecisionApp extends React.Component {
    */
   componentDidMount() {
     try {
-      const json = localStorage.getItem('data');
+      const json = localStorage.getItem("data");
       const options = JSON.parse(json);
 
       if (json) {
@@ -97,7 +97,7 @@ export default class IndecisionApp extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.options.length !== this.state.options.length) {
       const json = JSON.stringify(this.state.options);
-      localStorage.setItem('data', json);
+      localStorage.setItem("data", json);
     }
   }
 
@@ -108,16 +108,18 @@ export default class IndecisionApp extends React.Component {
     return (
       <div>
         <Header title={this.state.title} subtitle={this.state.subtitle} />
-        <Action
-          hasOptions={this.state.options.length > 0}
-          handlePickedOption={this.handlePick}
-        />
-        <Options
-          options={this.state.options}
-          handleDeleteOptions={this.handleDeleteOptions}
-          handleDeleteOption={this.handleDeleteOption}
-        />
-        <AddOption addOptionHandler={this.handleAddOption} />
+        <div className="container">
+          <Action
+            hasOptions={this.state.options.length > 0}
+            handlePickedOption={this.handlePick}
+          />
+          <Options
+            options={this.state.options}
+            handleDeleteOptions={this.handleDeleteOptions}
+            handleDeleteOption={this.handleDeleteOption}
+          />
+          <AddOption addOptionHandler={this.handleAddOption} />
+        </div>
         <OptionModal
           selectedOption={this.state.selectedOption}
           clearSelectedOption={this.clearSelectedOption}
