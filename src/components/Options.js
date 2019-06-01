@@ -1,9 +1,11 @@
-import React from 'react';
-import Option from './Option';
+import React from "react";
+import Option from "./Option";
 // Functional stateless component
-const Options = (props) => (
+const Options = props => (
   <div>
-    <button onClick={props.handleDeleteOptions}>Remove All</button>
+    <button className="button button--link" onClick={props.handleDeleteOptions}>
+      Remove All
+    </button>
     {props.options.length === 0 && <p>Add some options to get started!</p>}
     <ul>
       {props.options.map((option, index) => (

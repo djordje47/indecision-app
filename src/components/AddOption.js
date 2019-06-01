@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export default class AddOption extends React.Component {
   state = {
     error: undefined
   };
 
-  handleAddOption = (e) => {
+  handleAddOption = e => {
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
 
@@ -18,7 +18,7 @@ export default class AddOption extends React.Component {
     });
 
     if (!error) {
-      e.target.elements.option.value = '';
+      e.target.elements.option.value = "";
     }
   };
 
@@ -27,8 +27,8 @@ export default class AddOption extends React.Component {
       <div>
         <p>{this.state.error}</p>
         <form onSubmit={this.handleAddOption}>
-          <input type='text' name='option' />
-          <button>AddOption</button>
+          <input type="text" name="option" />
+          <button className="button">AddOption</button>
         </form>
       </div>
     );

@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
 // Functional stateless component
-const Action = (props) => (
+const Action = props => (
   <div>
-    <button onClick={props.handlePickedOption} disabled={!props.hasOptions}>
+    <button
+      className="big-button"
+      onClick={props.handlePickedOption}
+      disabled={!props.hasOptions}
+    >
       What should I do?
     </button>
   </div>
