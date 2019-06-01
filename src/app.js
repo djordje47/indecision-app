@@ -1,9 +1,9 @@
 // Third-party components
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // Master Component
-import IndecisionApp from './components/IndecisionApp';
-import 'normalize.css/normalize.css';
-import './styles/style.scss';
+import IndecisionApp from "./components/IndecisionApp";
+import "normalize.css/normalize.css";
+import "./styles/style.scss";
 // Render
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp />, document.getElementById("app"));
